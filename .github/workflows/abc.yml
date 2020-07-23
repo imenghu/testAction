@@ -1,0 +1,33 @@
+name: Cloud189Checkin
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+  schedule:
+    - cron: 0 2,14 * * *
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    
+    - name: Install Python
+      run: |
+        sudo apt update && \
+        sudo apt install python3
+      
+    
+        
+    - name: Checkin
+      run: |
+        user='${{ secrets.USER }}'
+        pwd='${{ secrets.PWD }}'
+
+        do
+        python3 hello.py
+       
+        
+        done
